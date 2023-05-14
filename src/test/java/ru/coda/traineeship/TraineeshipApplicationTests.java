@@ -1,4 +1,4 @@
-package ru.coda.traineeship.traineeship;
+package ru.coda.traineeship;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

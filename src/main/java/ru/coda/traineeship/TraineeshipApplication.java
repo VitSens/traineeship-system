@@ -1,4 +1,4 @@
-package ru.coda.traineeship.traineeship;
+package ru.coda.traineeship;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
