@@ -9,9 +9,9 @@ services:
       POSTGRES_USER: ${POSTGRESQL_USER}
       POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
     ports:
-      - "5432:5432"
+      - "5431:5432"
     networks:
-      - local-keycloak
+      - keycloak
 
   keycloak:
     depends_on:
