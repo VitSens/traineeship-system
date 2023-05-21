@@ -1,6 +1,7 @@
 package ru.coda.traineeship.recruitment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ import ru.coda.traineeship.vacancy.model.Vacancy;
 @Entity
 @Table(name = "resume")
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = "vacancySet")
 @NoArgsConstructor
 public class Resume {
 
@@ -81,7 +82,8 @@ public class Resume {
   private String university;
 
   @ManyToMany
+  @JsonIgnore
   @Lazy
-  private Set<Vacancy> vacancySet;
+  private Set<Vacancy> vacancySet = new HashSet<>();
 
 }
