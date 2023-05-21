@@ -23,9 +23,9 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-                .antMatchers("/authenticate", "/refresh").permitAll()
-                .anyRequest()
-                .permitAll();
+//                .antMatchers("/api/answers/**","/api/questions/**","/api/quizzes/**").hasRole("USER")
+                .antMatchers("/api/answers/**","/api/questions/**","/api/quizzes/**").hasRole("CURATOR")
+                .anyRequest().permitAll();
         http.csrf().disable();
     }
 
