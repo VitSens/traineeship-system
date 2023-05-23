@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface StatisticsService {
     Integer responseCount();
+    List<StatisticCount> getStatic(String what);
 
     List<StatisticCount> ageStatic();
 

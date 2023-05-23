@@ -11,23 +11,23 @@ import java.util.List;
 @Repository("StatisticsRepository")
 public interface StatisticsRepository extends JpaRepository<TestUserModel, Long> {
 
-    @Query("SELECT u.age, COUNT(u.age) AS c FROM TestUserModel u GROUP BY u.age")
+    @Query(value = "SELECT age AS what, COUNT(age) AS total FROM Users GROUP BY age", nativeQuery = true)
     List<StatisticCount> countAge();
-    @Query("SELECT u.city, COUNT(u.city) AS c FROM TestUserModel u GROUP BY u.city")
+    @Query(value = "SELECT city AS what, COUNT(u.city) AS total FROM Users u GROUP BY city", nativeQuery = true)
     List<StatisticCount> countCity();
 
-    @Query("SELECT u.university, COUNT(u.university) AS c FROM TestUserModel u GROUP BY u.university")
+    @Query(value = "SELECT university AS what, COUNT(u.university) AS total FROM Users u GROUP BY university", nativeQuery = true)
     List<StatisticCount> countUniversity();
 
-    @Query("SELECT u.education, COUNT(u.education) AS c FROM TestUserModel u GROUP BY u.education")
+    @Query(value = "SELECT education AS what, COUNT(u.education) AS total FROM Users u GROUP BY education", nativeQuery = true)
     List<StatisticCount> countEducation();
 
-    @Query("SELECT u.experience, COUNT(u.experience) AS c FROM TestUserModel u GROUP BY u.experience")
+    @Query(value = "SELECT experience AS what, COUNT(u.experience) AS total FROM Users u GROUP BY experience", nativeQuery = true)
     List<StatisticCount> countExperience();
 
-    @Query("SELECT u.directions, COUNT(u.directions) AS c FROM TestUserModel u GROUP BY u.directions")
+    @Query(value = "SELECT directions AS what, COUNT(u.directions) AS total FROM Users u GROUP BY directions", nativeQuery = true)
     List<StatisticCount> countDirections();
 
-    @Query("SELECT u.channel, COUNT(u.channel) AS c FROM TestUserModel u GROUP BY u.channel")
+    @Query(value = "SELECT u.channel AS what, COUNT(u.channel) AS total FROM Users u GROUP BY channel", nativeQuery = true)
     List<StatisticCount> countChannel();
 }

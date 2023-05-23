@@ -1,12 +1,15 @@
 package ru.coda.traineeship.statistics.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.coda.traineeship.statistics.repository.StatisticsRepository;
 import ru.coda.traineeship.statistics.service.abstracts.StatisticsService;
 import ru.coda.traineeship.statistics.util.StatisticCount;
 
 import java.util.List;
-
+@Service("StatisticsService")
+@Transactional
 public class StatisticsServiceImpl implements StatisticsService {
 
     private StatisticsRepository statisticsRepository;
@@ -19,6 +22,28 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public Integer responseCount() {
         return statisticsRepository.findAll().size();
+    }
+
+    @Override
+    public List<StatisticCount> getStatic(String what) {
+        switch (what) {
+            case ("age"):
+                return ageStatic();
+            case ("city"):
+                return cityStatic();
+            case ("university"):
+                return universityStatic();
+            case ("education"):
+                return educationStatic();
+            case ("directions"):
+                return directionsStatic();
+            case ("experience"):
+                return experienceStatic();
+            case ("channel"):
+                return channelStatic();
+            default:
+                return null;
+        }
     }
 
     @Override
