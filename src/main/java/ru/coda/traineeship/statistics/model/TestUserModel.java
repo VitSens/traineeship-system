@@ -32,6 +32,10 @@ public class TestUserModel {
 
     @Column
     @NotNull
+    private Integer response;
+
+    @Column
+    @NotNull
     private String directions;
 
     @Column

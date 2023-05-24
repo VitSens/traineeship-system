@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping(StatisticsController.ROOT_MAPPING)
 public class StatisticsController {
-    public static final String ROOT_MAPPING = "/api/statistics/candidate";
+    public static final String ROOT_MAPPING = "/api/statistics";
 
     private final StatisticsService statisticsService;
 
@@ -19,10 +19,16 @@ public class StatisticsController {
         this.statisticsService = statisticsService;
     }
 
-    @RequestMapping(value = "/{what}", method = RequestMethod.GET)
+    @RequestMapping(value = "/candidate/{what}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<StatisticCount>> getStatic(@PathVariable String what) {
-        List<StatisticCount> result = statisticsService.getStatic(what);
+    public ResponseEntity<List<StatisticCount>> getStaticForCandidate(@PathVariable String what) {
+        List<StatisticCount> result = statisticsService.getStaticForCandidate(what);
+        return  ResponseEntity.ok(result);
+    }
+    @RequestMapping(value = "/trainee/{what}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<StatisticCount>> getStaticForTrainee(@PathVariable String what) {
+        List<StatisticCount> result = statisticsService.getStaticForTrainee(what);
         return  ResponseEntity.ok(result);
     }
 
