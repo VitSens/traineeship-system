@@ -26,11 +26,8 @@ public class AnswerServiceImpl implements AnswerService {
     private QuestionService questionService;
 
     @Autowired
-    public AnswerServiceImpl(@Lazy AnswerRepository answerRepository) {
+    public AnswerServiceImpl(AnswerRepository answerRepository,@Lazy QuestionService questionService) {
         this.answerRepository = answerRepository;
-    }
-    @Autowired
-    public void setQuestionService(QuestionService questionService) {
         this.questionService = questionService;
     }
 
