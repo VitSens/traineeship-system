@@ -23,11 +23,6 @@ public class StatisticsServiceImpl implements StatisticsService {
     }
 
     @Override
-    public Integer responseCount() {
-        return statisticsCandidateRepository.findAll().size();
-    }
-
-    @Override
     public List<StatisticCount> getStaticForCandidate(String what) {
         switch (what) {
             case ("response"):
@@ -65,6 +60,11 @@ public class StatisticsServiceImpl implements StatisticsService {
             default:
                 return null;
         }
+    }
+
+    @Override
+    public Integer responseCount() {
+        return statisticsCandidateRepository.findAll().size();
     }
 
     @Override

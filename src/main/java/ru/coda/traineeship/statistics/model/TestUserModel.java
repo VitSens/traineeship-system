@@ -32,7 +32,7 @@ public class TestUserModel {
 
     @Column
     @NotNull
-    private Integer response;
+    private boolean response;
 
     @Column
     @NotNull

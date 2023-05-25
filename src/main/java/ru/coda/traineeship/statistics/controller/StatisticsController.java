@@ -23,12 +23,34 @@ public class StatisticsController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<StatisticCount>> getStaticForCandidate(@PathVariable String what) {
         List<StatisticCount> result = statisticsService.getStaticForCandidate(what);
+        result.add(new StatisticCount() {
+            @Override
+            public String getWhat() {
+                return "count";
+            }
+
+            @Override
+            public Integer getTotal() {
+                return what.equals("response")? statisticsService.responseCount() : result.size() - 1;
+            }
+        });
         return  ResponseEntity.ok(result);
     }
     @RequestMapping(value = "/trainee/{what}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<StatisticCount>> getStaticForTrainee(@PathVariable String what) {
         List<StatisticCount> result = statisticsService.getStaticForTrainee(what);
+        result.add(new StatisticCount() {
+            @Override
+            public String getWhat() {
+                return "count";
+            }
+
+            @Override
+            public Integer getTotal() {
+                return result.size() - 1;
+            }
+        });
         return  ResponseEntity.ok(result);
     }
 
