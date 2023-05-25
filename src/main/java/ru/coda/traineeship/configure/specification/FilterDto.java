@@ -1,4 +1,4 @@
-package ru.coda.traineeship.specification;
+package ru.coda.traineeship.configure.specification;
 
 import java.util.List;
 import lombok.AllArgsConstructor;

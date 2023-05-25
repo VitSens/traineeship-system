@@ -3,32 +3,27 @@ package ru.coda.traineeship.recruitment.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.lang.Nullable;
+import lombok.ToString;
 import ru.coda.traineeship.vacancy.model.Vacancy;
 
 @Entity
 @Table(name = "resume")
 @Data
 @EqualsAndHashCode(exclude = "vacancySet")
+@ToString(exclude = "vacancySet")
 @NoArgsConstructor
 public class Resume {
 
@@ -81,9 +76,8 @@ public class Resume {
   @NotNull
   private String university;
 
-  @ManyToMany
+  @OneToMany(mappedBy = "vacancy")
   @JsonIgnore
-  @Lazy
-  private Set<Vacancy> vacancySet = new HashSet<>();
+  private Set<ResumeVacancy> vacancySet = new HashSet<>();
 
 }
