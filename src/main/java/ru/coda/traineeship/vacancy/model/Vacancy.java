@@ -63,6 +63,14 @@ public class Vacancy {
   private String shortDescription;
 
   @Column
+  @Nullable
+  private String education;
+
+  @Column
+  @Nullable
+  private Integer task;
+
+  @Column
   @NotNull
   @Min(0)
   private Integer salary;

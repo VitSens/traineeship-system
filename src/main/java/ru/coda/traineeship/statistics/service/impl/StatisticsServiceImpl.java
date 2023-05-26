@@ -49,10 +49,8 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public List<StatisticCount> getStaticForTrainee(String what) {
         switch (what) {
-            case ("responseFromPM"):
+            case ("response"):
                 return responseForTraineeStatic();
-            case ("responseFromGovernment"):
-                return governmentStatic();
             case ("task"):
                 return taskForTraineeStatic();
             case ("education"):
@@ -75,11 +73,6 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public List<StatisticCount> taskForTraineeStatic() {
         return statisticsTraineeRepository.countTask();
-    }
-
-    @Override
-    public List<StatisticCount> governmentStatic() {
-        return statisticsTraineeRepository.countGovernment();
     }
 
     @Override

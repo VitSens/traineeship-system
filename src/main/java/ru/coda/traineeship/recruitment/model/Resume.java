@@ -17,6 +17,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.lang.Nullable;
 import ru.coda.traineeship.vacancy.model.Vacancy;
 
 @Entity
@@ -49,6 +50,10 @@ public class Resume {
   private String middleName;
 
   @Column
+  @Nullable
+  private Integer age;
+
+  @Column
   @NotNull
   private String location;
 
@@ -76,8 +81,19 @@ public class Resume {
   @NotNull
   private String university;
 
+  @Column
+  @Nullable
+  private String education;
+
+  @Column
+  @Nullable
+  private String channel;
+
   @OneToMany(mappedBy = "vacancy")
   @JsonIgnore
   private Set<ResumeVacancy> vacancySet = new HashSet<>();
 
+  @Column
+  @Nullable
+  private boolean response;
 }

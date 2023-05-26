@@ -27,8 +27,6 @@ public interface StatisticsService {
 
     List<StatisticCount> taskForTraineeStatic();
 
-    List<StatisticCount> governmentStatic();
-
     List<StatisticCount> responseForTraineeStatic();
 
 }
