@@ -11,7 +11,7 @@
 	<groupId>ru.coda.traineeship</groupId>
 	<artifactId>traineeship</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>traineeship</name>
 	<description>Traineeship system</description>
 	<properties>

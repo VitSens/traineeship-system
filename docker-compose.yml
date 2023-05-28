@@ -1,6 +1,17 @@
 version: '3.9'
 
 services:
+  traineeship:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - keycloak
+    depends_on:
+      - postgres
+      - keycloak
+
   postgres:
     image: postgres
     restart: unless-stopped
