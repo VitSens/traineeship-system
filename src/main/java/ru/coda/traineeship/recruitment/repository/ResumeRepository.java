@@ -13,7 +13,11 @@ import ru.coda.traineeship.vacancy.model.Vacancy;
 @Repository
 public interface ResumeRepository extends JpaRepository<Resume, Integer>, JpaSpecificationExecutor<Resume> {
 
-  List<Resume> findAllByUserId(String userId);
+  @Query("select r from Resume r where r.userId = :userId")
+  List<Resume> findAllByUserId(@Param("userId") String userId);
+
+  @Query("select r from Resume r where r.userId = :userId")
+  List<Resume> findByUserId(@Param("userId") Integer userId);
 
   @Query("select v from Vacancy v "
          + "where v.userId = :userId")
