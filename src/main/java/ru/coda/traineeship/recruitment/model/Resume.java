@@ -18,6 +18,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.lang.Nullable;
+import ru.coda.traineeship.rating.model.RatingCompany;
+import ru.coda.traineeship.rating.model.RatingTrainee;
 import ru.coda.traineeship.vacancy.model.Vacancy;
 
 @Entity
@@ -92,6 +94,11 @@ public class Resume {
   @OneToMany(mappedBy = "vacancy")
   @JsonIgnore
   private Set<ResumeVacancy> vacancySet = new HashSet<>();
+
+  @Nullable
+  @OneToMany(mappedBy = "resume")
+  @JsonIgnore
+  private Set<RatingTrainee> ratingTraineeSet = new HashSet<>();
 
   @Column
   @Nullable

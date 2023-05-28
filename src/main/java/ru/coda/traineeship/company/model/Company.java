@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
+import ru.coda.traineeship.rating.model.RatingCompany;
 import ru.coda.traineeship.vacancy.model.Vacancy;
 import ru.coda.traineeship.vacancy.model.VacancyStatus;
 
@@ -52,5 +53,10 @@ public class Company {
   @OneToMany(mappedBy = "company")
   @JsonIgnore
   private Set<Vacancy> vacancySet;
+
+  @Nullable
+  @OneToMany(mappedBy = "company")
+  @JsonIgnore
+  private Set<RatingCompany> ratingCompanySet;
 
 }
