@@ -27,6 +27,8 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/v1/vacancy", "/v1/vacancy/**").hasAnyRole("Intern", "Curator")
+                .antMatchers("/api/statistics/**").hasRole("Curator")
+                .antMatchers("/api/rating/**").hasAnyRole("HR")
 //                .antMatchers(HttpMethod.POST, "/v1/vacancy", "/v1/vacancy/**").hasRole("HR")
 //                    .access("@userSecurity.hasUserId(authentication,#userId)")
 //                .antMatchers("/v1/resume/{resumeId}/**").hasRole("Intern")
